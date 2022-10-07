@@ -1,0 +1,4 @@
+weights filter=lfs diff=lfs merge=lfs -text
+*.weights filter=lfs diff=lfs merge=lfs -text
+training/ filter=lfs diff=lfs merge=lfs -text
+yolov4-custom_best.weights filter=lfs diff=lfs merge=lfs -text

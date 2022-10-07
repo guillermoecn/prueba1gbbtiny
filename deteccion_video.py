@@ -12,12 +12,14 @@ import matplotlib.pyplot as plt
 
 
 # import darknet functions to perform object detections
+print("Antes del import darknet")
 from darknet.darknet import *
+print("Despues del import darknet")
 
 # load in our YOLOv4 architecture network
-cfg_path = "./yolov4-tiny-custom.cfg"
+cfg_path = "./yolov4-custom.cfg"
 obj_path = "./darknet/data/obj.data"
-weights_path = "./training/yolov4-tiny-custom_best.weights"
+weights_path = "./training/yolov4-custom_best.weights"
 network, class_names, class_colors = load_network(cfg_path, obj_path, weights_path)
 width = network_width(network)
 height = network_height(network)
@@ -61,7 +63,7 @@ def bbox_to_bytes(bbox_array):
 
 
 
-RUTA_VIDEO = "video_bolas_prueba_clahe.avi"
+RUTA_VIDEO = "video_bolas_prueba.avi"
 RUTA_RESULTADOS = "./resultados_deteccion/"
 
 vidcap = cv2.VideoCapture(RUTA_VIDEO)
@@ -104,4 +106,4 @@ while True:
 
 print("Fin de la predicción en video, duración:", (time.time()-t_inicio_video))
 print(f"Procesadas {count} imagenes")
-print(f"Tiempos: {tiempos} \nPromedio (se omite el primer dato): {np.mean(tiempos[1:])}")
+print(f"Tiempos: {tiempos} \nPromedio (se excluye el primer dato): {np.mean(tiempos[1:])}")
