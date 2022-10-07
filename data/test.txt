@@ -1,0 +1,2 @@
+data/obj/img317.jpg
+data/obj/img335.jpg
